@@ -122,11 +122,12 @@ const MapButtons = ({ scrollEnabled, map, usZips }) => {
         Hide Map Options 🔼
       </Button>
 
-      <div id="disappear">
+      {/* <div id="disappear">
         <Result
           status="warning"
           icon={<WarningFilled style={{ color: 'red', fontSize: '6rem' }} />}
-          title={
+          title=
+          {
             <div>
               <div style={{ color: 'white' }}>
                 THIS SITE MAY CONTAIN GRAPHIC IMAGES
@@ -195,7 +196,7 @@ const MapButtons = ({ scrollEnabled, map, usZips }) => {
             </Button>
           }
         />
-      </div>
+      </div> */}
     </div>
   );
 };
