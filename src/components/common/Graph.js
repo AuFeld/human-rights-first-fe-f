@@ -24,7 +24,7 @@ const Graph = () => {
       {
         incidentId: 'all',
         label: 'All',
-        data: [200, 190, 200, 180, 170, 190, 205, 190, 200, 160, 150, 180],
+        data: [250, 150],
         borderColor: '#c0ba17',
         backgroundColor: 'rgba(0,0,0,0)',
       },

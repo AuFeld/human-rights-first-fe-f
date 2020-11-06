@@ -33,7 +33,7 @@ export const Loading = () => {
         >
           <TabPane tab="Map" key="1">
             <div id="map" style={{ display: 'block' }}>
-              {<Map />}
+              <Map />
             </div>
           </TabPane>
           <TabPane tab="Graph" key="2" style={{ backgroundColor: '#191a1a' }}>
@@ -41,6 +41,9 @@ export const Loading = () => {
           </TabPane>
           <TabPane tab="About" key="3">
             <div id="about">{<About />}</div>
+          </TabPane>
+          <TabPane tab="test" key="4">
+            <div id="test">Test</div>
           </TabPane>
         </Tabs>
       </main>
