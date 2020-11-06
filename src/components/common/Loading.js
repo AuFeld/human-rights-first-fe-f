@@ -42,9 +42,6 @@ export const Loading = () => {
           <TabPane tab="About" key="3">
             <div id="about">{<About />}</div>
           </TabPane>
-          <TabPane tab="test" key="4">
-            <div id="test">Test</div>
-          </TabPane>
         </Tabs>
       </main>
       <footer className="page-footer">
