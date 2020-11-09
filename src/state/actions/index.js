@@ -16,6 +16,8 @@ export const fetchIncidents = () => dispatch => {
   axios
     .get(`https://labs27-d-hrf-api.herokuapp.com/incidents/dummy`)
     .then(res => {
+      console.log(`From fetchIncidents:`);
+      console.log(res.data);
       dispatch({ type: FETCH_INCIDENTS, payload: res.data });
     })
     .catch(err => {
