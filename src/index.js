@@ -10,6 +10,7 @@ import reducer from './state/reducers/';
 import { Loading } from './components/common/Loading';
 import NavBar from './components/common/NavBar';
 import thunk from 'redux-thunk';
+import { FiltersForm } from './components/common/FilterForm.js';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
