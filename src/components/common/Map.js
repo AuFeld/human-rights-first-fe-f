@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import myImg from '../../assets/police-badge.png';
 import myImg2 from '../../assets/police-helmet.png';
 import { fetchIncidents } from '../../state/actions';
+import { FiltersForm } from './FilterForm';
 
 const Map = () => {
   // using a NYC API to get dummy data for display on the map
@@ -423,6 +424,7 @@ const Map = () => {
       >
         Fast Travel States
       </Button>
+      <Button>Change Filters</Button>
 
       <MapButtons scrollEnabled={scrollEnabled} map={map} usZips={usZips} />
     </div>
