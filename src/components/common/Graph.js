@@ -1,126 +1,98 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
+import axios from 'axios';
 
-const Graph = () => {
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
-  const initialData = {
-    labels: months,
-    datasets: [
+const initialData = {
+  labels: months,
+  datasets: [
+    {
+      label: 'My First dataset',
+      backgroundColor: 'rgba(255,99,132,0.2)',
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [10, 20, 30],
+    },
+  ],
+};
+
+const options = {
+  responsive: true,
+  legend: {
+    display: true,
+    labels: {
+      fontSize: 16,
+      padding: 32,
+    },
+  },
+  scales: {
+    yAxes: [
       {
-        incidentId: 'all',
-        label: 'All',
-        data: [],
-        borderColor: '#c0ba17',
-        backgroundColor: 'rgba(0,0,0,0)',
-      },
-      {
-        incidentId: 'energyDevices',
-        label: 'Energy Devices',
-        data: [],
-        borderColor: '#6127cb',
-        backgroundColor: 'rgba(0,0,0,0)',
-      },
-      {
-        incidentId: 'softTechnique',
-        label: 'Soft Technique',
-        data: [],
-        borderColor: '#8b5c30',
-        backgroundColor: 'rgba(0,0,0,0)',
-      },
-      {
-        incidentId: 'hardTechnique',
-        label: 'Hard Technique',
-        data: [],
-        borderColor: '#1f2739',
-        backgroundColor: 'rgba(0,0,0,0)',
-      },
-      {
-        incidentId: 'chemical',
-        label: 'Chemical',
-        data: [],
-        borderColor: '#1707bd',
-        backgroundColor: 'rgba(0,0,0,0)',
-      },
-      {
-        incidentId: 'presence',
-        label: 'Presence',
-        data: [],
-        borderColor: '#4cb59e',
-        backgroundColor: 'rgba(0,0,0,0)',
-      },
-      {
-        incidentId: 'other',
-        label: 'Other',
-        data: [],
-        borderColor: '#9d13ae',
-        backgroundColor: 'rgba(0,0,0,0)',
+        stacked: false,
+        beginAtZero: true,
+        scaleLabel: {
+          fontSize: 20,
+          lineHeight: 2,
+          display: true,
+          labelString: '# of incidents',
+        },
+        ticks: {
+          autoSkip: false,
+        },
       },
     ],
-  };
+    xAxes: [
+      {
+        stacked: false,
+        beginAtZero: true,
+        scaleLabel: {
+          fontSize: 20,
+          lineHeight: 2,
+          display: true,
+          labelString: 'Timeline',
+        },
+        ticks: {
+          autoSkip: false,
+        },
+      },
+    ],
+  },
+};
 
+const Graph = () => {
   const incidentTypes = useSelector(state => state.filters.incidents);
-
   const [data, setData] = useState(initialData);
 
-  const options = {
-    responsive: true,
-    legend: {
-      display: true,
-      labels: {
-        fontSize: 16,
-        padding: 32,
-      },
-    },
-    scales: {
-      yAxes: [
-        {
-          stacked: false,
-          beginAtZero: true,
-          scaleLabel: {
-            fontSize: 20,
-            lineHeight: 2,
-            display: true,
-            labelString: '# of incidents',
-          },
-          ticks: {
-            autoSkip: false,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          stacked: false,
-          beginAtZero: true,
-          scaleLabel: {
-            fontSize: 20,
-            lineHeight: 2,
-            display: true,
-            labelString: 'Timeline',
-          },
-          ticks: {
-            autoSkip: false,
-          },
-        },
-      ],
-    },
-  };
+  useEffect(() => {
+    axios
+      .get('https://labs27-d-hrf-api.herokuapp.com/incidents/dummy')
+      .then(res => {
+        console.log('data', res.data);
+      })
+      .catch(err => {
+        console.log(err.data);
+      });
+  }, []);
 
   return (
+    // {<GraphFilter>}
     <div
       style={{
         backgroundColor: '#191A1A',
@@ -128,7 +100,7 @@ const Graph = () => {
         maxWidth: '1550px',
       }}
     >
-      <Line data={data} options={options} />
+      <Bar type="bar" data={data} options={options} />
     </div>
   );
 };
