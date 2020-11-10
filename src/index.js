@@ -10,9 +10,10 @@ import reducer from './state/reducers/';
 import { Loading } from './components/common/Loading';
 import NavBar from './components/common/NavBar';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import { FiltersForm } from './components/common/FilterForm.js';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Provider store={store}>
