@@ -7,7 +7,6 @@ import axios from 'axios';
 import { Button, Popover } from 'antd';
 import FiltersForm from './FilterForm';
 
-
 const months = [
   'January',
   'February',
@@ -27,22 +26,58 @@ const initialData = {
   labels: months,
   datasets: [
     {
-      label: 'My First dataset',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
+      label: 'Soft Technique',
+      backgroundColor: 'rgba(9, 132, 227,.2)',
+      borderColor: 'rgba(9, 132, 227, 1)',
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
       hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [5, 20, 30, 12, 7, 27, 0, 0, 0, 0, 0, 0],
+      data: [],
     },
     {
-      label: 'My Second dataset',
+      label: 'Hard Technique',
+      backgroundColor: 'rgba(214, 48, 49, 0.2)',
+      borderColor: 'rgba(214, 48, 49, 1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [],
+    },
+    {
+      label: 'Blunt Impact',
       backgroundColor: 'rgba(100,99,132,0.2)',
       borderColor: 'rgba(255,99,132,1)',
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
       hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [25, 12, 30, 12, 7, 27, 0, 0, 100, 0, 0, 0],
+      data: [],
+    },
+    {
+      label: 'Conducted Energy Devices',
+      backgroundColor: 'rgba(100,99,132,0.2)',
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [],
+    },
+    {
+      label: 'Chemical',
+      backgroundColor: 'rgba(108, 92, 231, .2)',
+      borderColor: 'rgba(108, 92, 231, 1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [],
+    },
+    {
+      label: 'Lethal Force',
+      backgroundColor: 'rgba(100,99,132,0.2)',
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(214, 48, 49, 0.2)',
+      hoverBorderColor: 'rgba(214, 48, 49, 1)',
+      data: [],
     },
   ],
 };
@@ -114,7 +149,6 @@ const Graph = () => {
         maxWidth: '1550px',
       }}
     >
-
       <Bar type="bar" data={data} options={options} />
       <Popover
         placement="bottomRight"
