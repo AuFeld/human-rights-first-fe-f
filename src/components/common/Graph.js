@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
+//Imported to add filter pane to graph page
 import { Button, Popover } from 'antd';
 import FiltersForm from './FilterForm';
 
@@ -26,7 +27,7 @@ const Graph = () => {
       {
         incidentId: 'all',
         label: 'All',
-        data: [],
+        data: [5, 20, 30, 25, 20],
         borderColor: '#c0ba17',
         backgroundColor: 'rgba(0,0,0,0)',
       },
