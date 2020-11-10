@@ -28,7 +28,16 @@ const initialData = {
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
       hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [10, 20, 30],
+      data: [5, 20, 30, 12, 7, 27, 0, 0, 0, 0, 0, 0],
+    },
+    {
+      label: 'My Second dataset',
+      backgroundColor: 'rgba(100,99,132,0.2)',
+      borderColor: 'rgba(255,99,132,1)',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [25, 12, 30, 12, 7, 27, 0, 0, 100, 0, 0, 0],
     },
   ],
 };
@@ -45,7 +54,7 @@ const options = {
   scales: {
     yAxes: [
       {
-        stacked: false,
+        stacked: true,
         beginAtZero: true,
         scaleLabel: {
           fontSize: 20,
@@ -60,7 +69,7 @@ const options = {
     ],
     xAxes: [
       {
-        stacked: false,
+        stacked: true,
         beginAtZero: true,
         scaleLabel: {
           fontSize: 20,
