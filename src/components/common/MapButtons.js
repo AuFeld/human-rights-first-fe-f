@@ -125,7 +125,7 @@ const MapButtons = ({ scrollEnabled, map, usZips }) => {
       {/* <div id="disappear">
         <Result
           status="warning"
-          icon={<WarningFilled style={{ color: 'red', fontSize: '6rem' }} />}
+          icon={<WarningFilled style={{ color: 'green', fontSize: '6rem' }} />}
           title={
             <div>
               <div style={{ color: 'white' }}>
