@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
+import { Button, Popover } from 'antd';
+import FiltersForm from './FilterForm';
 
 const Graph = () => {
   const months = [
@@ -128,6 +130,15 @@ const Graph = () => {
         maxWidth: '1550px',
       }}
     >
+      <Popover
+        placement="bottomRight"
+        title="Filter this graph!"
+        content={<FiltersForm />}
+        trigger="click"
+      >
+        <Button type="primary">Filters</Button>
+      </Popover>
+
       <Line data={data} options={options} />
     </div>
   );
