@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-//Alexander changes
+
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
-//Kory changes
+
 import { Button, Popover } from 'antd';
 // import FiltersForm from './FilterForm';
 import GraphFilterForm from './GraphFilterForm';
