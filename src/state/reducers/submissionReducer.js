@@ -1,3 +1,5 @@
+import { SEND_SUBMISSION } from '../actions/index.js';
+
 const initialState = {
   name: '',
   date: '',
@@ -8,5 +10,11 @@ const initialState = {
 };
 
 export const submissionReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case SEND_SUBMISSION:
+      return {
+        ...state,
+        initialState: action.payload,
+      };
+  }
 };
