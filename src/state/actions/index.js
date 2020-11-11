@@ -7,6 +7,7 @@
 import axios from 'axios';
 export const UPDATE_FILTERS = 'UPDATE_FILTERS';
 export const FETCH_INCIDENTS = 'FETCH_INCIDENTS';
+export const SEND_SUBMISSION = 'SEND_SUBMISSION';
 
 export const updateFilters = filters => {
   return { type: UPDATE_FILTERS, payload: filters };
@@ -16,11 +17,15 @@ export const fetchIncidents = () => dispatch => {
   axios
     .get(`https://labs27-d-hrf-api.herokuapp.com/incidents/dummy`)
     .then(res => {
-      console.log(`From fetchIncidents:`);
-      console.log(res.data);
       dispatch({ type: FETCH_INCIDENTS, payload: res.data });
     })
     .catch(err => {
       console.log(err);
     });
+};
+
+export const sendSubmission = userData => dispatch => {
+  axios.push('https://fakeurl.org/dummy/data', userData).then(res => {
+    dispatch({ type: SEND_SUBMISSION, payload: res.data });
+  });
 };
