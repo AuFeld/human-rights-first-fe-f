@@ -9,7 +9,7 @@
 
 ## Deployed App
 - https://d.humanrightsfirst.dev/
-<img src='./src/assets/hrf.jpg'>
+<img src='./src/assets/images/hrf.jpg'>
 
 ## Features
 

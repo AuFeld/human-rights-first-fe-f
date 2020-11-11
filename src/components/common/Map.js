@@ -9,8 +9,8 @@ import incidentsDB from '../../database/data2.json';
 import TwitterPopup from './TwitterPopup';
 import ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import myImg from '../../assets/police-badge.png';
-import myImg2 from '../../assets/police-helmet.png';
+import myImg from '../../assets/images/police-badge.png';
+import myImg2 from '../../assets/images/police-helmet.png';
 import { fetchIncidents } from '../../state/actions';
 import { FiltersForm } from './FilterForm';
 
