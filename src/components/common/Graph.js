@@ -5,7 +5,8 @@ import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
 import { Button, Popover } from 'antd';
-import FiltersForm from './FilterForm';
+// import FiltersForm from './FilterForm';
+import GraphFilterForm from './GraphFilterForm';
 
 const months = [
   'January',
@@ -117,7 +118,7 @@ const Graph = () => {
       <Popover
         placement="bottomRight"
         title="Filter this graph!"
-        content={<FiltersForm />}
+        content={<GraphFilterForm />}
         trigger="click"
       >
         <Button type="primary">Filters</Button>
