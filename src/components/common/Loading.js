@@ -4,6 +4,7 @@ import Map from '../common/Map';
 import Graph from '../common/Graph';
 import About from '../common/About';
 import FiltersForm from './FilterForm';
+import SubmitIncident from './SubmitIncident';
 import 'antd/dist/antd.css';
 import '../../styles/index.css';
 import { Tabs, Button, Popover } from 'antd';
@@ -41,6 +42,9 @@ export const Loading = () => {
           </TabPane>
           <TabPane tab="About" key="3">
             <div id="about">{<About />}</div>
+          </TabPane>
+          <TabPane tab="Submit Incident" key="4">
+            <div id="submit">{<SubmitIncident />}</div>
           </TabPane>
         </Tabs>
       </main>
