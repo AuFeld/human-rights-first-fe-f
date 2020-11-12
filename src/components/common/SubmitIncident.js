@@ -8,6 +8,7 @@ import {
   Select,
 } from 'antd';
 import React, { useState } from 'react';
+import { Justify } from 'react-bootstrap-icons';
 
 export default function SubmitIncident() {
   const [userDetails, setUserDetails] = useState({
@@ -37,7 +38,13 @@ export default function SubmitIncident() {
   };
 
   return (
-    <div className="submission-form">
+    <div
+      className="submission-form"
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
       <Form
         // onValuesChange={handleChanges}
         {...formLayout}
@@ -62,10 +69,10 @@ export default function SubmitIncident() {
         </Form.Item>
 
         <Form.Item
-          label="Type of force used"
+          label="Type of force used:"
           name="category"
           rules={[{ required: true, message: 'Please choose at least one!' }]}
-          style={{ width: 500 }}
+          style={{ width: 490 }}
         >
           <Select className="category" placeholder="Select..." />
         </Form.Item>
