@@ -152,7 +152,7 @@ const Graph = () => {
       <Bar type="bar" data={data} options={options} />
       <Popover
         placement="bottomRight"
-        title="Filter this graph!"
+        title="Filter Incident Data"
         content={<GraphFilterForm />}
         trigger="click"
       >

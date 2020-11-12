@@ -13,7 +13,7 @@ import {
 import { updateFilters } from '../../state/actions/';
 import 'antd/dist/antd.css';
 import './FilterForm.css';
-import statesDB from '../../database/states.json';
+import statesDB from '../../assets/data/states.json';
 
 const { Title } = Typography;
 const { Option } = Select;
