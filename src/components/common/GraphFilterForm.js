@@ -1,24 +1,33 @@
 import React from 'react';
-import { Checkbox, DatePicker } from 'antd';
+import { Select } from 'antd';
+
 //getting the range picker element from date
-const { RangePicker } = DatePicker;
+const { Option } = Select;
 
 export default function GraphFilterForm() {
-  const incidents = ['test', 'test2', 'test3'];
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
 
   return (
     <div className="filter-box">
-      <div className="date-range">
-        <RangePicker picker="month" renderExtraFooter={() => 'extra footer'} />
-      </div>
-      <div className="filter-types">
-        <div className="checkboxes">
-          <Checkbox.Group
-            style={{ width: '100%' }}
-            options={incidents}
-            defaultValue={incidents}
-          />
-        </div>
+      <div id="starting_month">
+        <Select style={{ width: 100 }}>
+          {months.map(month => {
+            return <Option value={month}>{month}</Option>;
+          })}
+        </Select>
       </div>
     </div>
   );

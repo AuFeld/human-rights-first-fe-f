@@ -43,6 +43,8 @@ export default function SubmitIncident() {
       style={{
         display: 'flex',
         justifyContent: 'center',
+        marginTop: '5%',
+        // border: '1px solid red'
       }}
     >
       <Form
