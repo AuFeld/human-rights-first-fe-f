@@ -6,7 +6,21 @@ import { useSelector, useDispatch } from 'react-redux';
 const { Option } = Select;
 
 export default function GraphFilterForm() {
-  const [months] = useSelector(state => [state.filterGraphReducer.userRange]);
+  // const [months] = useSelector(state => [state.filterGraphReducer.userRange]);
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
 
   return (
     <div

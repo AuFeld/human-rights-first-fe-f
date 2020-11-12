@@ -1,3 +1,5 @@
+import { UPDATE_GRAPH_FILTERS } from '../actions/index.js';
+
 const initialState = {
   monthRange: [
     'January',
@@ -16,7 +18,15 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case UPDATE_GRAPH_FILTERS:
+      return {
+        ...state,
+        ...action.payload,
+      };
+    default:
+      return state;
+  }
 };
 
 export default reducer;
