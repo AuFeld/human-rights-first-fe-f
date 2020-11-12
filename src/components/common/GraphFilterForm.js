@@ -28,7 +28,6 @@ export default function GraphFilterForm() {
       style={{
         display: 'flex',
         justifyContent: 'center',
-        border: '1px solid red',
       }}
     >
       <div id="starting_month">

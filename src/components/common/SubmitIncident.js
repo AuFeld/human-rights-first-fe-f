@@ -55,7 +55,6 @@ export default function SubmitIncident() {
         <Form.Item
           label="Date"
           name="date"
-          placeholder="11/03/2020"
           rules={[{ required: true, message: 'Please enter date.' }]}
           style={{ width: 500 }}
         >

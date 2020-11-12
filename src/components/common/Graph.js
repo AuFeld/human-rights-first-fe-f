@@ -7,21 +7,6 @@ import axios from 'axios';
 import { Button, Popover, Popconfirm } from 'antd';
 import GraphFilterForm from './GraphFilterForm';
 
-// const months = [
-//   'January',
-//   'February',
-//   'March',
-//   'April',
-//   'May',
-//   'June',
-//   'July',
-//   'August',
-//   'September',
-//   'October',
-//   'November',
-//   'December',
-// ];
-
 // var filteredRange = []
 
 const Graph = () => {
