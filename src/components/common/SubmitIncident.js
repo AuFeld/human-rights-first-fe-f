@@ -8,6 +8,7 @@ import {
   Select,
 } from 'antd';
 import React, { useState } from 'react';
+import { Justify } from 'react-bootstrap-icons';
 
 export default function SubmitIncident() {
   const { Option } = Select;
@@ -71,11 +72,11 @@ export default function SubmitIncident() {
         </Form.Item>
 
         <Form.Item
-          label="category"
+          label="Type of force used:"
+          name="category"
+          rules={[{ required: true, message: 'Please choose at least one!' }]}
           tooltip="The categories outlined here were taken from the National Institute of Justice' Use of Force Continuum. For more information, please visit: https://nij.ojp.gov/topics/articles/use-force-continuum "
-          style={{
-            width: 490,
-          }}
+          style={{ width: 490 }}
         >
           <Select className="category" mode="multiple" showArrow allowClear>
             <Option value="vocalization">Vocalization</Option>
