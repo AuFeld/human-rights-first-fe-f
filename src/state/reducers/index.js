@@ -3,8 +3,10 @@
 import { combineReducers } from 'redux';
 import fetchIncidentsReducer from './fetchIncidentsReducer';
 import filters from './filtersReducer';
+import filterGraphReducer from './filterGraphReducer';
 
 export default combineReducers({
   fetchIncidentsReducer,
   filters,
+  filterGraphReducer,
 });
