@@ -1,5 +1,5 @@
 const initialState = {
-  userRange: [
+  monthRange: [
     'January',
     'February',
     'March',
