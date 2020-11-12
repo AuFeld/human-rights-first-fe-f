@@ -1,25 +1,12 @@
 import React from 'react';
 import { Select } from 'antd';
-import { useSelector, useDispatch } from 'reatc-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 //getting the range picker element from date
 const { Option } = Select;
 
 export default function GraphFilterForm() {
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
+  const [months] = useSelector(state => [state.filterGraphReducer.userRange]);
 
   return (
     <div
