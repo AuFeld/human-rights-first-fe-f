@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import * as mapboxgl from 'mapbox-gl';
-import statesDB from '../../database/states.json';
+import statesDB from '../../assets/data/states.json';
 import { Button } from 'antd';
 import usZips from 'us-zips';
 import MapButtons from './MapButtons';
-import incidentsDB from '../../database/data2.json';
+import incidentsDB from '../../assets/data/data2.json';
 import TwitterPopup from './TwitterPopup';
 import ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';

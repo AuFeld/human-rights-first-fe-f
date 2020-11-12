@@ -44,7 +44,11 @@ const TwitterPopup = ({ incident }) => {
             <div>
               {/* <h2>{incident.title}</h2> */}
               <p>
-                <a target="_blank" href={incident.link1}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={incident.link1}
+                >
                   {incident.link1}{' '}
                 </a>
               </p>
@@ -54,7 +58,11 @@ const TwitterPopup = ({ incident }) => {
             <div>
               {/* <h2>{incident.title}</h2> */}
               <p>
-                <a target="_blank" href={incident.link1}>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={incident.link1}
+                >
                   {incident.link1}{' '}
                 </a>
               </p>

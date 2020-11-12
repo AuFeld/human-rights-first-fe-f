@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Result } from 'antd';
-import statesDB from '../../database/states.json';
+import statesDB from '../../assets/data/states.json';
 import { useSelector } from 'react-redux';
 import { WarningFilled } from '@ant-design/icons';
 
