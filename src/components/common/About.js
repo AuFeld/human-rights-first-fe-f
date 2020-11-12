@@ -1,5 +1,5 @@
 import React from 'react';
-import './About.css';
+import '../../styles/About.css';
 import { Typography } from 'antd';
 import { Flag, People, Map } from 'react-bootstrap-icons';
 

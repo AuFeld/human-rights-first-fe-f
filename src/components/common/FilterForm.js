@@ -12,7 +12,7 @@ import {
 } from 'antd';
 import { updateFilters } from '../../state/actions/';
 import 'antd/dist/antd.css';
-import './FilterForm.css';
+import '../../styles/FilterForm.css';
 import statesDB from '../../assets/data/states.json';
 
 const { Title } = Typography;
