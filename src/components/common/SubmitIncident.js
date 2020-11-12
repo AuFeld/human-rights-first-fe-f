@@ -19,41 +19,75 @@ export default function SubmitIncident() {
     email: '',
   });
 
-  const handleChanges = e => {
-    e.persist();
-    setUserDetails({
-      ...userDetails,
-      [e.target.name]: e.target.value,
-    });
+  //   const handleChanges = e => {
+  //     e.persist();
+  //     setUserDetails({
+  //       ...userDetails,
+  //       [e.target.name]: e.target.value,
+  //     });
+  //   };
+
+  const formLayout = {
+    labelCol: { span: 8 },
+    wrapperCol: { span: 16 },
   };
 
-  const formLayout = {};
+  const tailLayout = {
+    wrapperCol: { offset: 8, span: 16 },
+  };
 
   return (
     <div className="submission-form">
-      <Form onValuesChange={handleChanges} layout="vertical">
-        <Form.Item label="date">
-          <Input id="date" placeholder="date" />
-        </Form.Item>
-        <Form.Item label="location">
-          <Input id="location" placeholder="location" />
-        </Form.Item>
+      <Form
+        // onValuesChange={handleChanges}
+        {...formLayout}
+        name="basic"
+      >
         <Form.Item
-          label="category"
-          tooltip="The categories outlined here were taken from the National Institute of Justice' Use of Force Continuum. For more information, please visit: https://nij.ojp.gov/topics/articles/use-force-continuum "
+          label="Date"
+          name="date"
+          rules={[{ required: true, message: 'Please enter date!' }]}
+          style={{ width: 500 }}
         >
-          <Select className="category" />
+          <Input placeholder="MM/DD/YYYY" />
         </Form.Item>
-        <Form.Item>
-          <Input.TextArea id="description" placeholder="description" />
+
+        <Form.Item
+          label="Location"
+          name="location"
+          rules={[{ required: true, message: 'Please enter Location!' }]}
+          style={{ width: 500 }}
+        >
+          <Input placeholder="City, State" />
         </Form.Item>
-        <Form.Item>
-          <Input id="date" placeholder="date" />
+
+        <Form.Item
+          label="Type of force used"
+          name="category"
+          rules={[{ required: true, message: 'Please choose at least one!' }]}
+          style={{ width: 500 }}
+        >
+          <Select className="category" placeholder="Select..." />
         </Form.Item>
-        <Form.Item>
-          <Input id="email" placeholder="jane.doe.com" />
+
+        <Form.Item
+          label="Description of incident"
+          style={{
+            width: 500,
+          }}
+        >
+          <Input.TextArea
+            id="description"
+            placeholder="Please describe the details of the incident"
+          />
         </Form.Item>
-        <Button> SUBMIT </Button>
+
+        <Form.Item {...tailLayout} style={{ width: 500 }}>
+          <Button type="primary" htmlType="submit">
+            {' '}
+            SUBMIT{' '}
+          </Button>
+        </Form.Item>
       </Form>
     </div>
   );
