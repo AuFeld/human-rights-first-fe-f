@@ -10,6 +10,7 @@ import {
 import React, { useState } from 'react';
 
 export default function SubmitIncident() {
+  const { Option } = Select;
   const [userDetails, setUserDetails] = useState({
     name: '',
     date: '',
@@ -37,7 +38,15 @@ export default function SubmitIncident() {
   };
 
   return (
-    <div className="submission-form">
+    <div
+      className="submission-form"
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        marginTop: '5%',
+      }}
+    >
       <Form
         // onValuesChange={handleChanges}
         {...formLayout}
@@ -62,12 +71,21 @@ export default function SubmitIncident() {
         </Form.Item>
 
         <Form.Item
-          label="Type of force used"
-          name="category"
-          rules={[{ required: true, message: 'Please choose at least one!' }]}
-          style={{ width: 500 }}
+          label="category"
+          tooltip="The categories outlined here were taken from the National Institute of Justice' Use of Force Continuum. For more information, please visit: https://nij.ojp.gov/topics/articles/use-force-continuum "
+          style={{
+            width: 490,
+          }}
         >
-          <Select className="category" placeholder="Select..." />
+          <Select className="category" mode="multiple" showArrow allowClear>
+            <Option value="vocalization">Vocalization</Option>
+            <Option value="soft technique">Soft Technique</Option>
+            <Option value="hard technique">Hard Technique</Option>
+            <Option value="blunt force">Blunt Force</Option>
+            <Option value="projectiles">Projectiles</Option>
+            <Option value="chemical">Chemical</Option>
+            <Option value="lethal force">Lethal Force</Option>
+          </Select>
         </Form.Item>
 
         <Form.Item
