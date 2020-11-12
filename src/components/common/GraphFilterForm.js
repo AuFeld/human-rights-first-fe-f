@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select } from 'antd';
+import { Select, Button } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 
 //getting the range picker element from date
@@ -56,6 +56,7 @@ export default function GraphFilterForm() {
             })}
           </Select>
         </div>
+        <Button type="primary">Submit</Button>
       </div>
     </div>
   );
