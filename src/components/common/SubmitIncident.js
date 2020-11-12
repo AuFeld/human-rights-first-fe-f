@@ -42,7 +42,6 @@ export default function SubmitIncident() {
       className="submission-form"
       style={{
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
         marginTop: '5%',
       }}
@@ -55,7 +54,8 @@ export default function SubmitIncident() {
         <Form.Item
           label="Date"
           name="date"
-          rules={[{ required: true, message: 'Please enter date!' }]}
+          placeholder="11/03/2020"
+          rules={[{ required: true, message: 'Please enter date.' }]}
           style={{ width: 500 }}
         >
           <Input placeholder="MM/DD/YYYY" />
@@ -64,7 +64,7 @@ export default function SubmitIncident() {
         <Form.Item
           label="Location"
           name="location"
-          rules={[{ required: true, message: 'Please enter Location!' }]}
+          rules={[{ required: true, message: 'Please enter Location' }]}
           style={{ width: 500 }}
         >
           <Input placeholder="City, State" />
@@ -90,14 +90,24 @@ export default function SubmitIncident() {
 
         <Form.Item
           label="Description of incident"
+          name="description"
           style={{
             width: 500,
           }}
         >
           <Input.TextArea
             id="description"
-            placeholder="Please describe the details of the incident"
+            placeholder="Please describe the incident in detail"
           />
+        </Form.Item>
+
+        <Form.Item
+          label="Email"
+          name="email"
+          rules={[{ required: true, message: 'Please enter your email.' }]}
+          style={{ width: 500 }}
+        >
+          <Input placeholder="City, State" />
         </Form.Item>
 
         <Form.Item {...tailLayout} style={{ width: 500 }}>
