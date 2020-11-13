@@ -123,7 +123,7 @@ const Map = () => {
 
     setUpdatedIncidents(filteredIncidents);
   }, [incidentType]);
-  console.log(updatedIncidents);
+  // console.log(updatedIncidents);
 
   // --- initiating set up for when map loads
   let hoveredStateId = null;
