@@ -31,6 +31,7 @@ export const sendSubmission = userData => dispatch => {
   });
 };
 
-export const updateGraphFilters = userRange => dispatch => {
-  return { type: UPDATE_GRAPH_FILTERS, userRange };
+export const updateGraphFilters = (userRange) => dispatch =>{
+  console.log(userRange)
+  return { type: UPDATE_GRAPH_FILTERS, payload: userRange };
 };

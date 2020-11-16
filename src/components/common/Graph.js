@@ -4,20 +4,36 @@ import { useSelector } from 'react-redux';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
-import { Button, Popover, Popconfirm } from 'antd';
+import { Button, Popover, Row, Col, Statistic, Popconfirm } from 'antd';
 import GraphFilterForm from './GraphFilterForm';
+import { keyframes } from 'styled-components';
 
-// var filteredRange = []
+// const months = [
+//   'January',
+//   'February',
+//   'March',
+//   'April',
+//   'May',
+//   'June',
+//   'July',
+//   'August',
+//   'September',
+//   'October',
+//   'November',
+//   'December',
+// ];
+
+const initialDeathCount = {
+  //bazinga
+}
+
+
 
 const Graph = () => {
-  const [filteredRange] = useSelector(state => [
-    state.filterGraphReducer.monthRange,
-  ]);
-
-  useEffect(() => {}, []);
-
+  const incidentTypes = useSelector(state => state.filters.incidents);
+  const filteredMonths = useSelector(state => state.filterGraphReducer.monthRange)
   const initialData = {
-    labels: filteredRange,
+    labels: filteredMonths,
     datasets: [
       {
         label: 'Vocalization (?)',
@@ -26,7 +42,7 @@ const Graph = () => {
         borderWidth: 1,
         hoverBackgroundColor: 'rgba(85, 239, 196, 0.2)',
         hoverBorderColor: 'rgb(85, 239, 196)',
-        data: [10],
+        data: [10, 11, 15, 6, 45, 2, 234],
       },
       {
         label: 'Soft Technique (?)',
@@ -84,7 +100,7 @@ const Graph = () => {
       },
     ],
   };
-
+  
   const options = {
     responsive: true,
     legend: {
@@ -127,9 +143,36 @@ const Graph = () => {
       ],
     },
   };
-
-  const incidentTypes = useSelector(state => state.filters.incidents);
   const [data, setData] = useState(initialData);
+
+  const initialTotal = 0;
+  const [deathCounts, setDeathCounts] = useState(initialDeathCount);
+  const [total, setTotal] = useState(initialTotal);
+
+  async function sumTheDeaths(deathCounts) {
+    var vals = await Object.values(deathCounts);
+    let t = 0;
+    const reducer = (acc, cv) => acc + cv;
+    t = vals.reduce(reducer, 0);
+    setTotal(t);
+  }
+
+  async function getDeathCounts() {
+    await axios
+      .get(
+        'http://human-rights-first-api.eba-rb7uzmhr.us-east-1.elasticbeanstalk.com/getcount'
+      )
+      .then(res => setDeathCounts(JSON.parse(res.data)))
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  sumTheDeaths(deathCounts);
+
+  useEffect(() => {
+    getDeathCounts();
+  }, []);
 
   return (
     // {<GraphFilter>}
@@ -137,10 +180,10 @@ const Graph = () => {
       style={{
         backgroundColor: '#dfe6e9',
         margin: '0 auto',
-        maxWidth: '90%',
+        maxWidth: '1550px',
       }}
     >
-      <Bar type="bar" data={data} options={options} />
+      <Bar type="bar" data={data} options={options}/>
       <Popover
         placement="bottomRight"
         title="Filter Incident Data"
@@ -149,14 +192,22 @@ const Graph = () => {
       >
         <Button
           type="primary"
-          style={{
-            marginBottom: '3%',
-            marginLeft: '3%',
-          }}
         >
           Filters
         </Button>
       </Popover>
+      <Row gutter={16}>
+        <Col span={12}>
+          <Statistic 
+          title="Total Deaths" 
+          value={total} 
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+          />
+        </Col>
+      </Row>
     </div>
   );
 };

@@ -20,9 +20,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case UPDATE_GRAPH_FILTERS:
+      console.log(state.monthRange)
       return {
         ...state,
-        ...action.payload,
+        monthRange: action.payload
       };
     default:
       return state;
