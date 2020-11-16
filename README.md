@@ -1,7 +1,7 @@
 # Human Rights First Police Use of Force Map - Front End
 
 ## Description 👇
-> **Disclaimer:** This application is currently in Alpha (as of Oct 20, 2020) and is not ready for production. Please use at your own risk as things will change almost daily.
+> **Disclaimer:** This application is currently in Alpha (as of Nov 16, 2020) and is not ready for production. Please use at your own risk as things will change almost daily.
 
 - Our team is developing an interactive map that identifies potential instances of police use of force across the United States of America for [Human Rights First](https://www.humanrightsfirst.org/), an independent advocacy and action organization. We are also developing additional graphics to track and display police brutality trends.
 - An application that takes information from data provided by the data science team collecting relevant incidents and data from Twitter, Reddit, and police agencies to display it on the map.
@@ -66,7 +66,20 @@
 `MapBox` - https://docs.mapbox.com :
 - using mapboxgl approach
 
-## The Team
+## Labs28 Team
+
+- [Chase Goldfeld](https://github.com/AuFeld)[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AuFeld)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/chase-goldfeld/) - Team Project Lead
+
+- [Kory Hacker](https://github.com/Tusk617)[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Tusk617)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/k-hacker/) - Front End Engineer
+
+- [Brandon Neil](https://github.com/bneil7)[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/bneil7)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/brandon-g-neil/) - Front End Engineer
+
+- [Jason Fadelli](https://github.com/Jfadelli)[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Jfadelli)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jfadelli/) - Front End Engineer
+
+- [Alexander Goncalves](https://github.com/schroeder-g)[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/schroeder-g)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/alexgoncalves1/) - Front End Engineer
+
+## Labs27 Team
+
 - [Hira Khan](https://github.com/Hira63S)[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Hira63S)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/hira-shahid-991b1583/) - Team Project Lead
 
 - [Cedric Winbush](https://github.com/caw442000)[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/caw442000)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/cedricwinbush/) - Team Project Lead
