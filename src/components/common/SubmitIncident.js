@@ -77,8 +77,15 @@ export default function SubmitIncident() {
           rules={[{ required: true, message: 'Please choose at least one!' }]}
           tooltip="The categories outlined here were taken from the National Institute of Justice' Use of Force Continuum. For more information, please visit: https://nij.ojp.gov/topics/articles/use-force-continuum "
           style={{ width: 490 }}
+          placeholder="e.g. anal probe"
         >
-          <Select className="category" mode="multiple" showArrow allowClear>
+          <Select
+            className="category"
+            mode="multiple"
+            showArrow
+            allowClear
+            placeholder="Select all that apply "
+          >
             <Option value="vocalization">Vocalization</Option>
             <Option value="soft technique">Soft Technique</Option>
             <Option value="hard technique">Hard Technique</Option>
@@ -108,7 +115,7 @@ export default function SubmitIncident() {
           rules={[{ required: true, message: 'Please enter your email.' }]}
           style={{ width: 500 }}
         >
-          <Input placeholder="City, State" />
+          <Input placeholder="e.g. xxx@gmail.com" />
         </Form.Item>
 
         <Form.Item {...tailLayout} style={{ width: 500 }}>
