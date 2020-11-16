@@ -4,9 +4,28 @@ import { useSelector } from 'react-redux';
 import { Bar } from 'react-chartjs-2';
 import axios from 'axios';
 
-import { Button, Popover, Row, Col, Statistic, Popconfirm } from 'antd';
+import { Layout, Button, Popover, Row, Col, Statistic, Typography } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import GraphFilterForm from './GraphFilterForm';
 import { keyframes } from 'styled-components';
+
+const { Content } = Layout;
+const { Text } = Typography;
+
+// This random Array in Range is used to seed dummy data that is rendered on the bar chart
+const randomArrayInRange = (min, max, n) =>
+  Array.from(
+    {
+      length: n,
+    },
+    () => Math.floor(Math.random() * (max - min + 1)) + min
+  );
+
+const randomNumParams = {
+  min: 1,
+  max: 15,
+  n: 12,
+};
 
 const months = [
   'January',
@@ -33,7 +52,11 @@ const initialData = {
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(85, 239, 196, 0.2)',
       hoverBorderColor: 'rgb(85, 239, 196)',
-      data: [10, 11, 15, 6, 45, 2, 234],
+      data: randomArrayInRange(
+        randomNumParams.min,
+        randomNumParams.max,
+        randomNumParams.n
+      ),
     },
     {
       label: 'Soft Technique (?)',
@@ -42,7 +65,11 @@ const initialData = {
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(116, 185, 255, .4)',
       hoverBorderColor: 'rgb(116, 185, 255)',
-      data: [10],
+      data: randomArrayInRange(
+        randomNumParams.min,
+        randomNumParams.max,
+        randomNumParams.n
+      ),
     },
     {
       label: 'Hard Technique (?)',
@@ -51,7 +78,11 @@ const initialData = {
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(250, 177, 160, 0.4)',
       hoverBorderColor: 'rgb(250, 177, 160)',
-      data: [10],
+      data: randomArrayInRange(
+        randomNumParams.min,
+        randomNumParams.max,
+        randomNumParams.n
+      ),
     },
     {
       label: 'Blunt Impact (?)',
@@ -60,7 +91,11 @@ const initialData = {
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(253, 121, 168, 0.4)',
       hoverBorderColor: 'rgba(253, 121, 168, 1)',
-      data: [10],
+      data: randomArrayInRange(
+        randomNumParams.min,
+        randomNumParams.max,
+        randomNumParams.n
+      ),
     },
     {
       label: 'Conducted Energy Devices (?)',
@@ -69,7 +104,11 @@ const initialData = {
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(255, 234, 167, .4)',
       hoverBorderColor: 'rgb(255, 234, 167)',
-      data: [10],
+      data: randomArrayInRange(
+        randomNumParams.min,
+        randomNumParams.max,
+        randomNumParams.n
+      ),
     },
     {
       label: 'Chemical (?)',
@@ -78,7 +117,11 @@ const initialData = {
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(162, 155, 254, 0.4)',
       hoverBorderColor: 'rgb(162, 155, 254)',
-      data: [10],
+      data: randomArrayInRange(
+        randomNumParams.min,
+        randomNumParams.max,
+        randomNumParams.n
+      ),
     },
     {
       label: 'Lethal Force (?)',
@@ -87,22 +130,16 @@ const initialData = {
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(214, 48, 49, 0.2)',
       hoverBorderColor: 'rgba(214, 48, 49, 1)',
-      data: [10],
+      data: randomArrayInRange(
+        randomNumParams.min,
+        randomNumParams.max,
+        randomNumParams.n
+      ),
     },
   ],
 };
 
-const initialDeathCount = {
-  // "Officer Presence": "1218",
-  // "Nonthreatening Commands": "115",
-  // "3. Threatening Commands": "425",
-  // "4. Soft Technique": "83",
-  // "5. Hard Technique": "1020",
-  // "6. Blunt Impact": "838",
-  // "7. Chemical": "1030",
-  // "8. Conducted Enery Devices": "322",
-  // "9. Lethal": "313"
-};
+const initialIncidentsCount = {};
 
 const options = {
   responsive: true,
@@ -152,36 +189,32 @@ const Graph = () => {
   const [data, setData] = useState(initialData);
 
   const initialTotal = 0;
-  const [deathCounts, setDeathCounts] = useState(initialDeathCount);
+  const [incidentCounts, setincidentCounts] = useState(initialIncidentsCount);
   const [total, setTotal] = useState(initialTotal);
 
-  async function sumTheDeaths(deathCounts) {
-    var vals = await Object.values(deathCounts);
-    let t = 0;
-    const reducer = (acc, cv) => acc + cv;
-    t = vals.reduce(reducer, 0);
-    setTotal(t);
+  async function sumTheDeaths(incidentCounts) {
+    var vals = await Object.values(incidentCounts);
+    setTotal(vals[8]);
   }
 
-  async function getDeathCounts() {
+  async function getincidentCounts() {
     await axios
       .get(
         'http://human-rights-first-api.eba-rb7uzmhr.us-east-1.elasticbeanstalk.com/getcount'
       )
-      .then(res => setDeathCounts(JSON.parse(res.data)))
+      .then(res => setincidentCounts(JSON.parse(res.data)))
       .catch(err => {
         console.log(err);
       });
   }
 
-  sumTheDeaths(deathCounts);
-
+  // Initially we expected lethal occurances to be in multiple categories of array, so we invoked a reducer to sum these.
+  sumTheDeaths(incidentCounts);
   useEffect(() => {
-    getDeathCounts();
+    getincidentCounts();
   }, []);
 
   return (
-    // {<GraphFilter>}
     <div
       style={{
         backgroundColor: '#dfe6e9',
@@ -189,30 +222,42 @@ const Graph = () => {
         maxWidth: '1550px',
       }}
     >
-      <Bar type="bar" data={data} options={options} />
-      <Popover
-        placement="bottomRight"
-        title="Filter Incident Data"
-        content={<GraphFilterForm />}
-        trigger="click"
-      >
-        <Button
-          style={{
-            alignContent: 'center',
-            justifyContent: 'center',
-            padding: '1em',
-            fontSize: '2em',
-          }}
-          type="primary"
-        >
-          Filters
-        </Button>
-      </Popover>
-      <Row gutter={16}>
-        <Col span={12}>
-          <Statistic title="Total Deaths" value={total} />
-        </Col>
-      </Row>
+      <Layout>
+        <Content>
+          <Bar type="bar" data={data} options={options} />
+          <Row gutter={16}>
+            <Col offset={8}>
+              <Text type="secondary">
+                The data above is randomly generated and will be updated with
+                real data in a future release.
+              </Text>
+            </Col>
+          </Row>
+          <br></br>
+          <Row gutter={16}>
+            <Col span={6} offset={0}>
+              <Popover
+                placement="topLeft"
+                title="Filter Incident Data"
+                content={<GraphFilterForm />}
+                trigger="click"
+              >
+                <Button type="primary"> Filters </Button>
+              </Popover>
+            </Col>
+            <Col span={6} offset={6}>
+              <Statistic
+                title="Total Deaths"
+                value={total}
+                prefix={<ExclamationCircleOutlined />}
+                valueStyle={{
+                  color: '#cf1322',
+                }}
+              />
+            </Col>
+          </Row>
+        </Content>
+      </Layout>
     </div>
   );
 };
