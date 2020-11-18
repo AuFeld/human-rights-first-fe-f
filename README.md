@@ -3,9 +3,9 @@
 ## Description 👇
 > **Disclaimer:** This application is currently in Alpha (as of Nov 16, 2020) and is not ready for production. Please use at your own risk as things will change almost daily.
 
-- Our team is developing an interactive map that identifies potential instances of police use of force across the United States of America for [Human Rights First](https://www.humanrightsfirst.org/), an independent advocacy and action organization. We are also developing additional graphics to track and display police brutality trends.
+- Our team is developing an interactive map that identifies potential instances of police use of force across the United States of America for [Human Rights First](https://www.humanrightsfirst.org/), an independent advocacy and action organization. We are also developing additional graphics to track and display police use of force trends.
 - An application that takes information from data provided by the data science team collecting relevant incidents and data from Twitter, Reddit, and police agencies to display it on the map.
-- This app will display various incidents of police use of force on a map that can be filtered by  type of brutality and location with zipcodes and states.
+- This app will display various incidents of police use of force on a map that can be filtered by type of force and location with zipcodes and states.
 
 ## Deployed App
 - https://d.humanrightsfirst.dev/
@@ -17,13 +17,13 @@
 - Sign in/Sign out options `(not functional)`
 - Graph: 
     - timelime view of number of incidents over the course of a year (data dates range) 
-    - ability to filter out data by type of brutality used
+    - ability to filter out data by type of force used
 - Filter `(currently applying just for the map)`: 
     - date range implemented `(not functional)`
     - reset filters `(not functional)`
     - select state dropdown or search state by typing(selected state can be removed with one click on the x  button on the right afterwards): zooms onto the selected state
     - search by zip-code (looked up zipcode can be removed with the x  button on the right of it afterwards): zooms onto a zipcode location
-    - filter incidents by type of brutality
+    - filter incidents by type of force
     - filter incidents by type of source like Twitter, Reddit, etc `(not functional)`
 - Map:
     - graphic content warning screen 
